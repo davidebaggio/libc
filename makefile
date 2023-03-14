@@ -1,6 +1,6 @@
 SRC= ./src
 INCLUDE= ./include
-TEST=./example
+TEST=./test
 CC=gcc
 CFLAGS= -std=c11 -I$(INCLUDE)
 
