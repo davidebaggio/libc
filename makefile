@@ -2,16 +2,12 @@ SRC= ./src
 INCLUDE= ./include
 TEST=./example
 CC=gcc
-CFLAGS= -std=c11 -I$(INCLUDE) -Wall -Wextra
+CFLAGS= -std=c11 -I$(INCLUDE)
 
-dir:
-	mkdir ./build
+#-Wall -Wextra -Wimplicit-function-declaration
 
 lib:
 	$(CC) $(CFLAGS) -c $(SRC)/*.c -o ./build/libc.o
-
-clear:
-	rm -r ./build
 
 test:
 	$(CC) $(CFLAGS) -c $(TEST)/main.c -o $(TEST)/main.o
