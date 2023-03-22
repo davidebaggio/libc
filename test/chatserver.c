@@ -18,7 +18,7 @@ int main(int argc, char const *argv[])
 
 	// assign IP, PORT
 	servaddr.sin_family = AF_INET;
-	servaddr.sin_addr.s_addr = htonl(INADDR_ANY);
+	servaddr.sin_addr.s_addr = inet_addr("127.0.0.1");
 	servaddr.sin_port = htons(PORT);
 
 	// Binding newly created socket to given IP and verification

@@ -12,9 +12,9 @@ void join_chat(int sockfd)
 		while ((buff[n++] = getchar()) != '\n')
 			;
 		write(sockfd, buff, sizeof(buff));
-		memset(buff, 0, sizeof(buff));
-		read(sockfd, buff, sizeof(buff));
-		printf("From Server : %s", buff);
+		// memset(buff, 0, sizeof(buff));
+		// read(sockfd, buff, sizeof(buff));
+		// printf("From Server : %s", buff);
 		if ((strncmp(buff, "exit", 4)) == 0)
 		{
 			printe(CLOSINGCLIENT, 0);

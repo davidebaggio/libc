@@ -10,7 +10,8 @@ void host_chat(int connfd)
 		memset(buff, 0, MAX);
 		read(connfd, buff, sizeof(buff));
 		// print buffer which contains the client contents
-		printf("From client: %s\t To client : ", buff);
+		printe(MESSAGE, 0);
+		printf("%s", buff);
 		memset(buff, 0, MAX);
 		n = 0;
 		while ((buff[n++] = getchar()) != '\n')
