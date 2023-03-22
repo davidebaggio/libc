@@ -14,7 +14,8 @@ void startup_socket()
 	{
 		/* Tell the user that we could not find a usable */
 		/* Winsock DLL.                                  */
-		printf("WSAStartup failed with error: %d\n", err);
+		// printf("WSAStartup failed with error: %d\n", err);
+		printe(WSASTARTUPERR, err);
 		return;
 	}
 
@@ -28,12 +29,17 @@ void startup_socket()
 	{
 		/* Tell the user that we could not find a usable */
 		/* WinSock DLL.                                  */
-		printf("Could not find a usable version of Winsock.dll\n");
+		// printf("Could not find a usable version of Winsock.dll\n");
+		printe(WINSOCKERR, 0);
 		WSACleanup();
 		return;
 	}
 	else
+	{
+		printf("%s", GREEN);
 		printf("The Winsock 2.2 dll was found okay\n");
+		printf("%s", DEFAULT);
+	}
 }
 
 void cleanup_socket()

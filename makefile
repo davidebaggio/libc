@@ -9,7 +9,8 @@ CFLAGS= -std=c11 -I$(INCLUDE)
 lib:
 	$(CC) $(CFLAGS) -c $(SRC)/lbendian.c -o ./build/lbendian.o
 	$(CC) $(CFLAGS) -c $(SRC)/clientweb.c -o ./build/clientweb.o
-	ar ruv ./build/libc.a ./build/lbendian.o ./build/clientweb.o
+	$(CC) $(CFLAGS) -c $(SRC)/libcerr.c -o ./build/libcerr.o
+	ar ruv ./build/libc.a ./build/lbendian.o ./build/clientweb.o ./build/libcerr.o
 	ranlib ./build/libc.a
 
 tests: lib
