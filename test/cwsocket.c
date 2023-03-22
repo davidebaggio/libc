@@ -12,6 +12,5 @@ int main(int argc, char const *argv[])
 	return 0;
 
 	/* then call WSACleanup when done using the Winsock dll */
-
 	cleanup_socket();
 }
