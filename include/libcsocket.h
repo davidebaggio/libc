@@ -9,6 +9,10 @@
 #include <stdio.h>
 #include "libcerr.h"
 
+#define SA struct sockaddr
+#define MAX 80
+#define PORT 8080
+
 void startup_socket();
 void cleanup_socket();
 

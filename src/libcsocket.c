@@ -1,4 +1,4 @@
-#include "clientweb.h"
+#include "libcsocket.h"
 
 void startup_socket()
 {
@@ -36,9 +36,7 @@ void startup_socket()
 	}
 	else
 	{
-		printf("%s", GREEN);
-		printf("The Winsock 2.2 dll was found okay\n");
-		printf("%s", DEFAULT);
+		printe(WINSOCKOK, 0);
 	}
 }
 
