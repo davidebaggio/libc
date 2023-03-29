@@ -15,7 +15,7 @@ lib:
 	ar ruv ./build/libc.a ./build/lbendian.o ./build/libcsocket.o ./build/libcerr.o ./build/client.o ./build/server.o
 	ranlib ./build/libc.a
 
-tests:
+tests: lib
 	$(CC) $(CFLAGS) -c $(TEST)/main.c -o $(TEST)/main.o
 	$(CC) $(CFLAGS) -o $(TEST)/main.exe $(TEST)/main.o ./build/libc.a
 	rm $(TEST)/main.o

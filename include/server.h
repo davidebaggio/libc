@@ -10,5 +10,6 @@
 #include <unistd.h>
 
 void host_chat(int);
+void *recieving(void *);
 
 #endif

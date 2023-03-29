@@ -2,6 +2,7 @@
 
 int main(int argc, char const *argv[])
 {
+	system("cls");
 	int sockfd, connfd;
 	struct sockaddr_in servaddr, cli;
 	startup_socket();
