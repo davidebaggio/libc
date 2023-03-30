@@ -2,10 +2,17 @@
 
 void *recieving(void *args)
 {
-	message *a = ((message *)args);
-	memset(a->buff, 0, sizeof(a->buff));
-	recv(a->socknum, a->buff, sizeof(a->buff), 0);
-	printf("%d : %s\n", a->socknum, a->buff);
+	while (1)
+	{
+		message *a = ((message *)args);
+		memset(a->buff, 0, sizeof(a->buff));
+		recv(a->socknum, a->buff, sizeof(a->buff), 0);
+		if (a->buff[0] != '\0')
+		{
+			// printe(MESSAGE, 0);
+			printf("%d : %s", a->socknum, a->buff);
+		}
+	}
 }
 
 void host_chat(int connfd)
@@ -15,11 +22,10 @@ void host_chat(int connfd)
 	recvs->socknum = connfd;
 	pthread_t id;
 	int n;
-	// infinite loop for chat
+	pthread_create(&id, NULL, recieving, recvs);
 	for (;;)
 	{
-		pthread_create(&id, NULL, recieving, recvs);
-		printe(MESSAGE, 0);
+		// printe(MESSAGE, 0);
 		n = 0;
 		while ((buff[n++] = getchar()) != '\n')
 			;
@@ -31,4 +37,6 @@ void host_chat(int connfd)
 		send(connfd, buff, sizeof(buff), 0);
 		memset(buff, 0, MAX);
 	}
+
+	pthread_cancel(id);
 }
