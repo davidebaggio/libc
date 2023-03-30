@@ -20,7 +20,10 @@ int main(int argc, char const *argv[])
 	// assign IP, PORT
 	servaddr.sin_family = AF_INET;
 	servaddr.sin_addr.s_addr = inet_addr("127.0.0.1");
-	servaddr.sin_port = htons(PORT);
+	if (is_little_endian())
+		servaddr.sin_port = htons(PORT);
+	else
+		servaddr.sin_port = PORT;
 
 	// connect the client socket to server socket
 	if (connect(sockfd, (SA *)&servaddr, sizeof(servaddr)) != 0)
