@@ -72,6 +72,10 @@ void printe(enum Err_type type, int e)
 		printf("%s", GREEN);
 		printf("Client accepted..\n");
 		break;
+	case FILEERR:
+		printf("%s", RED);
+		printf("Cannot open file: ");
+		break;
 	default:
 		break;
 	}

@@ -2,6 +2,8 @@
 
 int main(int argc, char const *argv[])
 {
+	(void)argc;
+	(void)argv;
 	system("cls");
 	int sockfd, connfd, len;
 	struct sockaddr_in servaddr, cli;

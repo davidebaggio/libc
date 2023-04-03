@@ -2,9 +2,11 @@
 
 int main(int argc, char const *argv[])
 {
+	(void)argc;
+	(void)argv;
 	system("cls");
-	int sockfd, connfd;
-	struct sockaddr_in servaddr, cli;
+	int sockfd;
+	struct sockaddr_in servaddr;
 	startup_socket();
 	// socket create and verification
 	sockfd = socket(AF_INET, SOCK_STREAM, 0);

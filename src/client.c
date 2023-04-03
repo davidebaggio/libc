@@ -2,17 +2,18 @@
 
 void *recieving(void *args)
 {
+	int valrecv;
 	while (1)
 	{
 		message *a = ((message *)args);
 		memset(a->buff, 0, sizeof(a->buff));
-		recv(a->socknum, a->buff, sizeof(a->buff), 0);
-		if (a->buff[0] != '\0')
+		valrecv = recv(a->socknum, a->buff, sizeof(a->buff), 0);
+		if (valrecv > 0)
 		{
-			// printe(MESSAGE, 0);
 			printf("%d : %s", a->socknum, a->buff);
 		}
 	}
+	pthread_exit(NULL);
 }
 
 void join_chat(int sockfd)
@@ -38,5 +39,6 @@ void join_chat(int sockfd)
 		send(sockfd, buff, sizeof(buff), 0);
 		memset(buff, 0, sizeof(buff));
 	}
+	free(recvs);
 	pthread_cancel(id);
 }

@@ -32,6 +32,7 @@ enum Err_type
 	LISTENINGOK,
 	ACCEPTERR,
 	ACCEPTOK,
+	FILEERR,
 	MESSAGE
 };
 

@@ -2,6 +2,8 @@
 
 int main(int argc, char const *argv[])
 {
+	(void)argc;
+	(void)argv;
 	startup_socket();
 
 	int s;

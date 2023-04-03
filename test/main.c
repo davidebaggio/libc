@@ -32,8 +32,8 @@ int main(int argc, const char *argv[])
 	{
 		uint64_t number = 513;
 		uint64_t conv64 = hton64(number);
-		printf("Conversion from host to network 8bytes %u --> %u\n", number, conv64);
-		printf("Conversion from network to host 8bytes %u --> %u\n", conv64, ntoh64(conv64));
+		printf("Conversion from host to network 8bytes %I64u --> %I64u\n", number, conv64);
+		printf("Conversion from network to host 8bytes %I64u --> %I64u\n", conv64, ntoh64(conv64));
 	}
 	return 0;
 }

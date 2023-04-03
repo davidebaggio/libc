@@ -11,5 +11,6 @@
 
 void host_chat(int);
 void *recieving(void *);
+char *filebuf(const char *);
 
 #endif
