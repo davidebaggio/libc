@@ -26,8 +26,9 @@ void *recieving(void *args)
 					str[l++] = '\0';
 					printf("%s[INFO]: getting file --> %s\n%s", YELLOW, str, DEFAULT);
 					char *p = filebuf(str);
-					printf("%s\n", p);
-					send(a->socknum, p, sizeof(p), 0);
+					// printf("%s\n", p);
+					if (p)
+						send(a->socknum, p, strlen(p), 0);
 				}
 			}
 		}
