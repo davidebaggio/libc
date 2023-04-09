@@ -2,6 +2,8 @@ SRC= ./src
 INCLUDE= ./include
 TEST=./test
 BIN= ./build/bin
+LIBC= $(BIN)/libc.a
+EXE= $(BIN)/executable
 CC=gcc
 CFLAGS= -std=c11 -I$(INCLUDE) -Wall -Wextra
 
@@ -17,20 +19,13 @@ lib:
 	ranlib $(BIN)/libc.a
 
 tests:
-	$(CC) $(CFLAGS) -c $(TEST)/main.c -o $(TEST)/main.o
-	$(CC) $(CFLAGS) -o $(TEST)/main.exe $(TEST)/main.o $(BIN)/libc.a
-	rm $(TEST)/main.o
-	$(CC) $(CFLAGS) -c $(TEST)/cwsocket.c -o $(TEST)/cwsocket.o
-	$(CC) $(CFLAGS) -o $(TEST)/cwsocket.exe $(TEST)/cwsocket.o $(BIN)/libc.a -lws2_32
-	rm $(TEST)/cwsocket.o
-	$(CC) $(CFLAGS) -c $(TEST)/chatclient.c -o $(TEST)/chatclient.o
-	$(CC) $(CFLAGS) -o $(TEST)/chatclient.exe $(TEST)/chatclient.o $(BIN)/libc.a -lws2_32
-	rm $(TEST)/chatclient.o
-	$(CC) $(CFLAGS) -c $(TEST)/chatserver.c -o $(TEST)/chatserver.o
-	$(CC) $(CFLAGS) -o $(TEST)/chatserver.exe $(TEST)/chatserver.o $(BIN)/libc.a -lws2_32
-	rm $(TEST)/chatserver.o
+	$(CC) $(CFLAGS) $(TEST)/main.c $(LIBC) -o $(EXE)/main.exe
+	$(CC) $(CFLAGS) $(TEST)/cwsocket.c $(LIBC) -lws2_32 -o $(EXE)/cwsocket.exe
+	$(CC) $(CFLAGS) $(TEST)/chatclient.c $(LIBC) -lws2_32 -o $(EXE)/chatclient.exe
+	$(CC) $(CFLAGS) $(TEST)/chatserver.c $(LIBC) -lws2_32 -o $(EXE)/chatserver.exe
+	$(CC) $(CFLAGS) $(TEST)/clientparser.c $(LIBC) -lws2_32 -o $(EXE)/clientparser.exe
 
 clear:
 	rm ./build/*.o
 	rm $(BIN)/libc.a
-	rm $(TEST)/*.exe
+	rm $(EXE)/*.exe

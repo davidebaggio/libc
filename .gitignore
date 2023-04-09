@@ -1,3 +1,4 @@
 build/*.o
+build/bin/executable/*
 test/*.exe
 .vscode

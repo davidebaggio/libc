@@ -8,11 +8,18 @@
 #include <ws2tcpip.h>
 #include <stdio.h>
 #include <pthread.h>
+#include <unistd.h>
 #include "libcerr.h"
 
 #define SA struct sockaddr
 #define MAX 80
 #define PORT 8080
+
+struct headers
+{
+	char *name;
+	char *value;
+};
 
 typedef struct
 {
