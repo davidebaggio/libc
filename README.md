@@ -4,7 +4,7 @@ LIBC is a client-server library that allows you to do simple things like http re
 
 ### USAGE
 
-In order to use LIBC you have to have (GNU Make)[https://www.gnu.org/software/make/] installed. This library is compatible with Windows and Linux operating systems.
+In order to use LIBC you have to have [GNU Make](https://www.gnu.org/software/make/) installed. This library is compatible with Windows and Linux operating systems.
 
 ```console
 $ make
