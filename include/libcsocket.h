@@ -3,9 +3,18 @@
 
 #define WIN32_LEAN_AND_MEAN
 
+#ifdef _WIN32
 #include <windows.h>
 #include <winsock2.h>
 #include <ws2tcpip.h>
+#endif
+
+#ifdef __unix__
+#include <netdb.h>
+#include <netinet/in.h>
+#include <sys/socket.h>
+#endif
+
 #include <stdio.h>
 #include <pthread.h>
 #include <unistd.h>
