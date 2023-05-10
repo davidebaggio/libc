@@ -13,9 +13,12 @@
 #include <netdb.h>
 #include <netinet/in.h>
 #include <sys/socket.h>
+#include <arpa/inet.h>
 #endif
 
 #include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
 #include <pthread.h>
 #include <unistd.h>
 #include "libcerr.h"
@@ -36,7 +39,9 @@ typedef struct
 	char buff[MAX];
 } message;
 
+#ifdef _WIN32
 void startup_socket();
 void cleanup_socket();
+#endif
 
 #endif

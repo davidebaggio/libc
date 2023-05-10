@@ -5,9 +5,12 @@ int main(int argc, char const *argv[])
 	(void)argc;
 	(void)argv;
 	system("cls");
-	int sockfd, connfd, len;
+	int sockfd, connfd;
+	unsigned int len;
 	struct sockaddr_in servaddr, cli;
+#ifdef _WIN32
 	startup_socket();
+#endif
 	// socket create and verification
 	sockfd = socket(AF_INET, SOCK_STREAM, 0);
 	if (sockfd == -1)
@@ -61,7 +64,9 @@ int main(int argc, char const *argv[])
 
 	// After chatting close the socket
 	close(sockfd);
+#ifdef _WIN32
 	cleanup_socket();
+#endif
 
 	return 0;
 }

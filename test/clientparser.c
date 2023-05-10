@@ -11,7 +11,9 @@ int main(int argc, char const *argv[])
 {
 	(void)argc;
 
+#ifdef _WIN32
 	startup_socket();
+#endif
 
 	int sockfd = socket(AF_INET, SOCK_STREAM, 0);
 	if (sockfd == -1)
@@ -76,6 +78,8 @@ int main(int argc, char const *argv[])
 		}
 	}
 
+#ifdef _WIN32
 	cleanup_socket();
+#endif
 	return 0;
 }

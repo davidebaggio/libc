@@ -7,7 +7,9 @@ int main(int argc, char const *argv[])
 	system("cls");
 	int sockfd;
 	struct sockaddr_in servaddr;
+#ifdef _WIN32
 	startup_socket();
+#endif
 	// socket create and verification
 	sockfd = socket(AF_INET, SOCK_STREAM, 0);
 	if (sockfd == -1)
@@ -41,6 +43,8 @@ int main(int argc, char const *argv[])
 
 	// close the socket
 	close(sockfd);
+#ifdef _WIN32
 	cleanup_socket();
+#endif
 	return 0;
 }

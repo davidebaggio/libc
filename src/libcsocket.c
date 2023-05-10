@@ -1,5 +1,6 @@
 #include "libcsocket.h"
 
+#ifdef _WIN32
 void startup_socket()
 {
 	WORD wVersionRequested;
@@ -44,3 +45,5 @@ void cleanup_socket()
 {
 	WSACleanup();
 }
+
+#endif

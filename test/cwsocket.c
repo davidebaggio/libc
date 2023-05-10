@@ -4,7 +4,9 @@ int main(int argc, char const *argv[])
 {
 	(void)argc;
 	(void)argv;
+#ifdef _WIN32
 	startup_socket();
+#endif
 
 	int s;
 
@@ -14,5 +16,7 @@ int main(int argc, char const *argv[])
 	return 0;
 
 	/* then call WSACleanup when done using the Winsock dll */
+#ifdef _WIN32
 	cleanup_socket();
+#endif
 }
