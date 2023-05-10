@@ -17,6 +17,9 @@ int main(int argc, char const *argv[])
 	}
 	else
 		printe(SOCKOK, 0);
+
+	// setsockopt(sockfd, SOL_SOCKET, )
+
 	memset(&servaddr, 0, sizeof(servaddr));
 
 	// assign IP, PORT

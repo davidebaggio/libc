@@ -10,7 +10,6 @@ struct sockaddr_in remote_addr;
 int main(int argc, char const *argv[])
 {
 	(void)argc;
-	(void)argv;
 
 	startup_socket();
 
