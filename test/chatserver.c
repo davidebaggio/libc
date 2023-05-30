@@ -6,7 +6,7 @@ int main(int argc, char const *argv[])
 	(void)argv;
 	system("cls");
 	int sockfd, connfd;
-	unsigned int len;
+	int len;
 	struct sockaddr_in servaddr, cli;
 #ifdef _WIN32
 	startup_socket();
